@@ -3,7 +3,7 @@ learn  and problems
 
 ## hotspot部分
 
-+ ### 引入动态热点，需要在tour.xml中添加一段如下脚本，必须在scene之外
++ 引入动态热点，需要在tour.xml中添加一段如下脚本，必须在scene之外
 ```
 <action name="do_crop_animation">
 	<!-- 为热点注册属性 -->
@@ -37,11 +37,12 @@ onloaded="do_crop_animation(64,64, 60)"
 
 ```
 
-+ ### 跳转问题
++ 跳转问题
 
 	+ 跳转到链接 openurl('www.baidu.com')
-	+ 跳转场景
-		 ```<hotspot name="spot1" style="skin_hotspotstyle_1" ath="118.751" atv="-17.238" **linkedscene="scene_b"** onloaded="do_crop_animation(64,64, 60)"/>```
+	+ 跳转场景 linkedscene="scene_b"
+	+ 调用自定义的函数
+	这个还有待研究。。。
 
 
 
