@@ -1,21 +1,50 @@
 # krpano 问题
 learn  and problems
 
-## hotspot
+## hotspot部分
 
-+ hotspot.count
-所有热点元素的计数/数量。
-+ ewr
-+ werw 
-+ wer 
-+ wer 
-
++ ### 引入动态热点，需要在tour.xml中添加一段如下脚本，必须在scene之外
+```
+<action name="do_crop_animation">
+	<!-- 为热点注册属性 -->
+	registerattribute(xframes, calc((imagewidth / %1) BOR 0));
+	registerattribute(yframes, calc((imageheight / %2) BOR 0));
+	registerattribute(frames, calc(xframes * yframes));
+	registerattribute(frame, 0);
+ 
+	set(crop, '0|0|%1|%2');
+ 
+	setinterval(calc('crop_anim_' + name), calc(1.0 / %3),
+		if(loaded,
+			inc(frame);
+			if(frame GE frames, if(onlastframe !== null, onlastframe() ); set(frame,0); );
+			mod(xpos, frame, xframes);
+			div(ypos, frame, xframes);
+			Math.floor(ypos);
+			mul(xpos, %1);
+			mul(ypos, %2);
+			calc(crop, xpos + '|' + ypos + '|%1|%2');
+		  ,
+			clearinterval(calc('crop_anim_' + name));
+		  );
+	  );
+</action>
 
 ```
-<div>
-	<div>哈哈哈</div>
-</div>
+调用时 
+```
+onloaded="do_crop_animation(64,64, 60)"
 
 ```
+
++ ### 跳转问题
+
+	+ 跳转到链接 openurl('www.baidu.com')
+	+ 跳转场景
+		 ```<hotspot name="spot1" style="skin_hotspotstyle_1" ath="118.751" atv="-17.238" **linkedscene="scene_b"** onloaded="do_crop_animation(64,64, 60)"/>```
+
+
+
+
 
 
