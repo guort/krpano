@@ -41,8 +41,19 @@ onloaded="do_crop_animation(64,64, 60)"
 
 	+ 跳转到链接 openurl('www.baidu.com')
 	+ 跳转场景 linkedscene="scene_b"
-	+ 调用自定义的函数
-	这个还有待研究。。。
+	+ 调用自定义的函数  
+	在xml中想要引用js的话，必须是加上js（“代码”）   
+	例如：
+	```
+	function tvm(){
+	var a = 10;
+	console.log(a);
+}
+
+ onclick="js('tvm()')"
+
+ ```
+	
 
 
 
