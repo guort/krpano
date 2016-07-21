@@ -71,7 +71,35 @@
 		if(startactions !== null, startactions() );
 	</action>
 
+	
+	<scene name="scene_e" title="e" onstart="" havevrimage="true" thumburl="panos/e.tiles/thumb.jpg" lat="" lng="" heading="">
 
+		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/e.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/e.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/e.tiles/vr/pano_%s.jpg" />
+		</image>
+
+		<!-- place your scene hotspots here -->
+		<hotspot name="spot1" style="skin_hotspotstyle_1" ath="118.751" atv="-17.238"  onloaded="do_crop_animation(64,64, 60)"/>
+
+		<hotspot name="spot2" style="skin_hotspotstyle_2" ath="117.474" atv="-8.214" linkedscene="scene_a" onloaded="do_crop_animation(64,64, 60)"/>
+
+		<hotspot name="spot3" style="skin_hotspotstyle_3" ath="134.303" atv="-15.505" linkedscene="scene_e" onloaded="do_crop_animation(102,102, 60)"/>
+
+		<hotspot name="spot4" style="skin_hotspotstyle_4" ath="101.283" atv="-14.135" linkedscene="scene_d" onloaded="do_crop_animation(100,100, 60)"
+		onclick="openurl('https://www.baidu.com')"
+			/>
+
+	</scene>
 	
 	<scene name="scene_c" title="c" onstart="" havevrimage="true" thumburl="panos/c.tiles/thumb.jpg" lat="" lng="" heading="">
 
@@ -90,15 +118,7 @@
 		</image>
 
 		<!-- place your scene hotspots here -->
-		<hotspot name="spot1" style="skin_hotspotstyle_1" ath="118.751" atv="-17.238"  onloaded="do_crop_animation(64,64, 60)"/>
-
-		<hotspot name="spot2" style="skin_hotspotstyle_2" ath="117.474" atv="-8.214" linkedscene="scene_a" onloaded="do_crop_animation(64,64, 60)"/>
-
-		<hotspot name="spot3" style="skin_hotspotstyle_3" ath="134.303" atv="-15.505" linkedscene="scene_e" onloaded="do_crop_animation(102,102, 60)"/>
-
-		<hotspot name="spot4" style="skin_hotspotstyle_4" ath="101.283" atv="-14.135" linkedscene="scene_d" onloaded="do_crop_animation(100,100, 60)"
-		onclick="openurl('https://www.baidu.com')"
-			/>
+		
 
 	</scene>
 
@@ -164,26 +184,7 @@
 
 	</scene>
 
-	<scene name="scene_e" title="e" onstart="" havevrimage="true" thumburl="panos/e.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0" vlookat="0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/e.tiles/preview.jpg" />
-
-		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
-			<level tiledimagewidth="640" tiledimageheight="640">
-				<cube url="panos/e.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
-			</level>
-		</image>
-
-		<image if="webvr.isenabled">
-			<cube url="panos/e.tiles/vr/pano_%s.jpg" />
-		</image>
-
-		<!-- place your scene hotspots here -->
-		<hotspot name="spot1" style="skin_hotspotstyle_1" ath="0.000" atv="0.000" linkedscene="scene_e" />
-
-	</scene>
+	
 
 	
 
