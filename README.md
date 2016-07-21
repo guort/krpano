@@ -49,6 +49,7 @@ onloaded="do_crop_animation(64,64, 60)"
 	var a = 10;
 	console.log(a);
 }
+//在xml 热点的onclick中添加
 
  onclick="js('tvm()')"
 
