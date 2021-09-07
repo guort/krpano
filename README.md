@@ -2,6 +2,7 @@
 learn  and problems
 
 ## hotspot部分
+12
 
 + 引入动态热点，需要在tour.xml中添加一段如下脚本，必须在scene之外
 ```
